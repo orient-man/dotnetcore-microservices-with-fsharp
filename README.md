@@ -3,16 +3,16 @@ Writing microservices in .NET Core 1.1 using F#
 
 Hello fellow dev! Are you ready to leave your comfort zone? Are your ready to:
 
-* Leave Visual Studio behind?
-* Embrace command line?
-* Use open source tools instead of Microsoft blessed ones?
-* Try new language (F#)?
+* Leave Visual Studio behind
+* Embrace command line
+* Use open source tools instead of Microsoft blessed ones
+* Try new language (F#)
 
 If you answered yes then follow me! :)
 
 ## Setup
 
-What you need to start?
+What you need to start:
 
 * Windows, Mac or Linux
 * [.NET Core SDK 1.1](https://www.microsoft.com/net/download/core)
@@ -54,7 +54,7 @@ We can also run tests:
 
     dotnet test .\src\AdderService.Tests\AdderService.Tests.fsproj
 
-## Step 2: Migrate from NuGet to Paket
+## Step 2: Migration from NuGet to Paket
 
 Managing dependencies with [Paket](https://fsprojects.github.io/Paket/) is so much easier than with NuGet that it's not even funny anymore. Just give it try!
 
@@ -65,7 +65,28 @@ To migrate project:
 * Run `.paket\paket.bootstrapper.exe`. This will download the latest `paket.exe` (only the former should be committed to your repo).
 * Run `.paket\paket.exe convert-from-nuget` to migrate.
 
-Now all your references will be kept in simple text files: ``paket.dependecies``
-(for solution) and ``paket.references`` (per project).
+Now all your references will be kept in simple text files: ``paket.dependecies`` and ``paket.references``.
 
 Restoring packages with ``dotnet restore`` should still work.
+
+Take a look at `paket.depnendecies` which contains top level dependencies from all projects in the solution:
+
+    source https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
+    source https://dotnet.myget.org/F/cli-deps/api/v3/index.json
+    source https://api.nuget.org/v3/index.json
+
+    nuget FSharp.Core >= 4.1.0
+    nuget FSharp.NET.Sdk >= 1.0.0
+    nuget Microsoft.NET.Test.Sdk 15.0.0
+    nuget xunit 2.2.0
+    nuget xunit.runner.visualstudio 2.2.0
+
+``paket.references`` specifies dependencies only for particular project. Your project files will be kept clear! There is only one line indicating that Paket is being used:
+
+    <Import Project="..\..\.paket\Paket.Restore.targets" />
+
+Because we will be targeting only .NET Core 1.1 (not full .NET Framework) we can make things little bit faster by adding one line at the beginning:
+
+    framework: netcoreapp1.1
+
+and run `.paket\paket.exe install`
