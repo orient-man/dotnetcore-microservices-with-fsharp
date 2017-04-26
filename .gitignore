@@ -16,3 +16,4 @@ TestResults/
 **/frontend/node_modules/
 **/frontend/coverage/
 DeploymentScripts/temp/
+any/
