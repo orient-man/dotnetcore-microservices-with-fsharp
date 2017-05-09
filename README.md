@@ -135,4 +135,4 @@ What we have done:
 
 In the next part we will upgrade our "Hello World" to full-fledged microservice. Stay tuned.
 
-PS You can find source code on [GitHub]().
+PS You can find source code on [GitHub](https://github.com/orient-man/dotnetcore-microservices-with-fsharp/tree/part-1).
