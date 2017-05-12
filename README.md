@@ -3,7 +3,26 @@ Writing microservices in .NET Core with F# (Part I)
 
 ## Intro
 
-Hello fellow dev! Are you ready to step out of your comfort zone? Are your ready to:
+Microservices are like teenage sex, a lot of companies are talking about it, but not that
+many are really doing it. Microservices in F# on .NET Core are like... Stop! I'll not name it
+but that's what tigers like best ;) ...and we're doing it.
+
+### Why microservices?
+
+We're not religious zealots and we will use "Simplest Thing That Could Possibly Work".
+That being said, there are many benefits of microservices from which I'll name only a few:
+
+* _Technology Heterogeneity_: We already use C#, F#, Python, .NET Core, .NET Framework, different kinds of data stores, integration APIs and so on
+* _Scaling and Ease of Deployment_: We want to leverage Cloud for maximum value and PaaS ("Platform as a Service") model is a way to go - simple as that
+* _Optimizing for Replaceability_: Refactoring is for losers, just delete and start from scratch
+
+### Why F#?
+
+Don't get me started because I'm totally biased on that subject. F# is probably the best
+thing Microsoft ever created. Howgh! I promise to write more about it in the future but for
+now look on what wise people [say](https://zombiecodekill.com/2016/04/30/the-case-for-f-sharp/).
+
+Words, words, words... Let's do something! Are you ready to step out of your comfort zone? Are your ready to:
 
 * Leave Visual Studio behind
 * Embrace command line
